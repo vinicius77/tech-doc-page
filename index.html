@@ -10,6 +10,133 @@
 </head>
 
 <body>
+  <nav id="navbar">
+    <header>
+      <h1>React 18</h1>
+    </header>
+    <a class="nav-link" href="#The_Plan_for_React_18">The Plan for React 18</a>
+    <a class="nav-link" href="#What_is_coming_in_React_18">What is coming in React 18</a>
+    <a class="nav-link" href="#A gradual_adoption_strategy">A gradual adoption strategy</a>
+    <a class="nav-link" href="#Accessing_the_React_18_Working_Group">Accessing the React 18 Working Group</a>
+    <a class="nav-link" href="#Projected_React_18_release_timeline">Projected React 18 release timeline</a>
+  </nav>
+
+  <main id="main-doc">
+    <section id="The_Plan_for_React_18" class="main-section">
+      <header>
+        <h2>The Plan for React 18</h2>
+      </header>
+
+      <h3>The React team is excited to share a few updates:</h3>
+
+      <ol>
+        <li>We’ve started work on the React 18 release, which will be our next major version.</li>
+        <li>We’ve created a Working Group to prepare the community for gradual adoption of new features in React 18.
+        </li>
+        <li>We’ve published a React 18 Alpha so that library authors can try it and provide feedback.</li>
+      </ol>
+
+      <p>These updates are primarily aimed at maintainers of third-party libraries. If you’re learning, teaching, or
+        using React
+        to build user-facing applications, you can safely ignore this post. But you are welcome to follow the
+        discussions in the
+        React 18 Working Group if you’re curious!</p>
+
+    </section>
+
+    <section id="What_is_coming_in_ React_18" class="main-section">
+      <header>
+        <h2>What is coming in React 18</h2>
+      </header>
+
+      <p>When it’s released, React 18 will include out-of-the-box improvements (like automatic batching), new APIs (like
+        <code>startTransition</code>), and a new streaming server renderer with built-in support for
+        <code>React.lazy</code>.</p>
+
+      <p>One important difference is that <code>startTransition</code> is not scheduled for later like
+        <code>setTimeout</code> is. It executes immediately.
+        The function passed to <code>startTransition</code> runs synchronously, but any updates inside of it are marked
+        as “transitions”.
+        React will use this information later when processing the updates to decide how to render the update. This means
+        that we
+        start rendering the update earlier than if it were wrapped in a timeout. On a fast device, there would be very
+        little
+        delay between the two updates. On a slow device, the delay would be larger but the UI would remain responsive.
+      </p>
+
+      <p>These features are possible thanks to a new opt-in mechanism we’re adding in React 18. It’s called “concurrent
+        rendering” and it lets React prepare multiple versions of the UI at the same time. This change is mostly
+        behind-the-scenes, but it unlocks new possibilities to improve both real and perceived performance of your app.
+      </p>
+
+      <p> If you’ve been following our research into the future of React (we don’t expect you to!), you might have heard
+        of
+        something called “concurrent mode” or that it might break your app. In response to this feedback from the
+        community,
+        we’ve redesigned the upgrade strategy for gradual adoption. Instead of an all-or-nothing “mode”, concurrent
+        rendering
+        will only be enabled for updates triggered by one of the new features. In practice, this means <strong>you will
+          be able to adopt
+          React 18 without rewrites and try the new features at your own pace.</strong></p>
+
+    </section>
+
+    <section id="A_gradual_adoption_strategy" class="main-section">
+      <header>
+        <h2>A gradual adoption strategy</h2>
+      </header>
+      <p>Since concurrency in React 18 is opt-in, there are no significant out-of-the-box breaking changes to component
+        behavior.
+        You can upgrade to React 18 with minimal or no changes to your application code, with a level of effort
+        comparable to a
+        typical major React release. Based on our experience converting several apps to React 18, we expect that many
+        users will
+        be able to upgrade within a single afternoon.</p>
+
+      <p>We successfully shipped concurrent features to tens of thousands of components at Facebook, and in our
+        experience, we’ve
+        found that most React components “just work” without additional changes. We’re committed to making sure this is
+        a smooth
+        upgrade for the entire community, so today we’re announcing the React 18 Working Group.</p>
+    </section>
+
+    <section id="Accessing_the_React_18_Working_Group" class="main-section">
+      <header>
+        <h2>Accessing the React 18 Working Group</h2>
+      </header>
+
+      <p>Everyone can read the discussions in the React 18 Working Group repo.</p>
+
+      <p>Because we expect an initial surge of interest in the Working Group, only invited members will be allowed to
+        create or comment on threads. However, the threads are fully visible to the public, so everyone has access to
+        the same information. We believe this is a good compromise between creating a productive environment for working
+        group members, while maintaining transparency with the wider community.</p>
+
+      <p>As always, you can submit bug reports, questions, and general feedback to our issue tracker.</p>
+    </section>
+
+    <section id="Projected_React_18_release_timeline" class="main-section">
+      <header>
+        <h2>Projected React 18 release timeline</h2>
+      </header>
+
+      <p>We don’t have a specific release date scheduled, but we expect it will take several months of feedback and
+        iteration
+        before React 18 is ready for most production applications.</p>
+
+      <ul>
+        <li>Library Alpha: Available today</li>
+        <li>Public Beta: At least several months</li>
+        <li>Release Candidate (RC): At least several weeks after Beta</li>
+        <li>General Availability: At least several weeks after RC</li>
+
+        <p>More details about our projected release timeline are available in the Working Group. We’ll post updates on
+          this blog
+          when we’re closer to a public release.</p>
+      </ul>
+    </section>
+
+  </main>
   <script src="#FREEcodeCAMP"></script>
 </body>
 
